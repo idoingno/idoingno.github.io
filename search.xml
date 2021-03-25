@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>My New Post</title>
-    <url>/2021/03/22/My-New-Post/</url>
-    <content><![CDATA[]]></content>
+    <title>三月的诗</title>
+    <url>/2021/03/23/%E4%B8%89%E6%9C%88%E7%9A%84%E8%AF%97/</url>
+    <content><![CDATA[<p>孤山寺北贾亭西，水面初平云脚低。</p>
+<p>几处早莺争暖树，谁家新燕啄春泥。</p>
+<p>乱花渐欲迷人眼，浅草才能没马蹄。</p>
+<p>最爱湖东行不足，绿杨阴里白沙堤。</p>
+<p>——唐·白居易《钱塘湖春行》</p>
+<span id="more"></span>
+<br />
+
+
+
+<p>闻道春还未相识，走傍寒梅访消息。</p>
+<p>昨夜东风入武阳，陌头杨柳黄金色。</p>
+<p>碧水浩浩云茫茫，美人不来空断肠。</p>
+<p>预拂青山一片石，与君连日醉壶觞。</p>
+<p>——唐·李白《早春寄王汉阳 》</p>
+]]></content>
       <categories>
-        <category>web前端</category>
+        <category>随笔</category>
       </categories>
       <tags>
-        <tag>new code</tag>
-        <tag>css</tag>
+        <tag>生活</tag>
+        <tag>诗句</tag>
       </tags>
   </entry>
   <entry>
@@ -23,32 +38,6 @@
       </categories>
       <tags>
         <tag>生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/03/22/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>算法</title>
-    <url>/2021/03/23/%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="算法系列"><a href="#算法系列" class="headerlink" title="算法系列"></a>算法系列</h3><h4 id="啦啦啦"><a href="#啦啦啦" class="headerlink" title="啦啦啦"></a>啦啦啦</h4>]]></content>
-      <tags>
-        <tag>技术</tag>
       </tags>
   </entry>
 </search>
