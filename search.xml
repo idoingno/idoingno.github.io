@@ -28,6 +28,72 @@
       </tags>
   </entry>
   <entry>
+    <title>工具类项目及网站</title>
+    <url>/2021/03/31/%E5%B7%A5%E5%85%B7%E7%B1%BB%E9%A1%B9%E7%9B%AE%E5%8F%8A%E7%BD%91%E7%AB%99/</url>
+    <content><![CDATA[<h4 id="工具集"><a href="#工具集" class="headerlink" title="工具集"></a>工具集</h4><ul>
+<li><p>codeIf</p>
+<ul>
+<li>变量命名<strong>智能推荐</strong>（支持中文）</li>
+<li><a href="https://unbug.github.io/codelf/">Github地址</a></li>
+</ul>
+</li>
+<li><p>regexr</p>
+<ul>
+<li><strong>正则表达式</strong>验证匹配</li>
+<li><a href="https://regexr.com/">官网</a></li>
+</ul>
+</li>
+<li><p>any-rule</p>
+<ul>
+<li><strong>正则表达式库</strong></li>
+<li>可以直接安装到Vscode</li>
+<li><a href="https://github.com/any86/any-rule">Github地址</a></li>
+</ul>
+</li>
+<li><p>CSS Sprites Generato</p>
+<ul>
+<li>多张图片合成雪碧图，并生成对应 css</li>
+<li><a href="https://www.toptal.com/developers/css/sprite-generator">官网</a></li>
+</ul>
+</li>
+<li><p>gitignore</p>
+<ul>
+<li>根据选择会去生成 .gitignore 文件</li>
+<li><a href="https://www.gitignore.io/">官网</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="网站集"><a href="#网站集" class="headerlink" title="网站集"></a>网站集</h4><ul>
+<li><p>codesandbox</p>
+<ul>
+<li>在线代码编辑器</li>
+<li><a href="https://codesandbox.io/">官网</a></li>
+</ul>
+</li>
+<li><p>docschina</p>
+<ul>
+<li>印象中文，为 Web 前端开发人员提供优质中文文档</li>
+<li><a href="https://www.docschina.org/">官网</a></li>
+</ul>
+</li>
+<li><p>mdnice</p>
+<ul>
+<li>使 markdown 语法更加美观</li>
+<li><a href="https://mdnice.com/">官网</a></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>工具</tag>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>知白守黑</title>
     <url>/2021/03/24/%E7%9F%A5%E7%99%BD%E5%AE%88%E9%BB%91/</url>
     <content><![CDATA[<h2 id="知其白，守其黑，为天下式；"><a href="#知其白，守其黑，为天下式；" class="headerlink" title="知其白，守其黑，为天下式；"></a>知其白，守其黑，为天下式；</h2><span id="more"></span>
