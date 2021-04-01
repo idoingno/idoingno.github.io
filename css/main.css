@@ -1156,6 +1156,7 @@ pre .javascript .function {
   font-weight: 600;
   margin: 0;
   text-align: center;
+  font-family: cursive;
 }
 .site-description {
   color: #999;
@@ -1177,7 +1178,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #6cf6ff;
+  background: #eeff8b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
