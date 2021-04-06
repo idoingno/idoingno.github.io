@@ -1,4 +1,4 @@
-## 逆旅
+## [逆旅](https://idoingno.github.io/)
 
 
 人生如逆旅，我亦是行人。
