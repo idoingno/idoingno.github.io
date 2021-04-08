@@ -14,23 +14,24 @@
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Vue页面优化 页面载入进度条   nprogress 安装 1npm install --save nprogress 或 yarn add nprogress 使用 :12345678910import NProgress from &#39;nprogress&#39; &#x2F;&#x2F; 引入nprogress插件import &#39;nprogress&#x2F;nprogres">
+  <meta name="description" content="页面载入进度条 nprogress 安装 1npm install --save nprogress 或 yarn add nprogress 使用 :12345678910import NProgress from &#39;nprogress&#39; &#x2F;&#x2F; 引入nprogress插件import &#39;nprogress&#x2F;nprogress.css&#39;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue页面优化">
 <meta property="og:url" content="http://example.com/2021/04/01/Vue%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="逆旅">
-<meta property="og:description" content="Vue页面优化 页面载入进度条   nprogress 安装 1npm install --save nprogress 或 yarn add nprogress 使用 :12345678910import NProgress from &#39;nprogress&#39; &#x2F;&#x2F; 引入nprogress插件import &#39;nprogress&#x2F;nprogres">
+<meta property="og:description" content="页面载入进度条 nprogress 安装 1npm install --save nprogress 或 yarn add nprogress 使用 :12345678910import NProgress from &#39;nprogress&#39; &#x2F;&#x2F; 引入nprogress插件import &#39;nprogress&#x2F;nprogress.css&#39;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-01T02:57:23.000Z">
-<meta property="article:modified_time" content="2021-04-01T10:29:52.764Z">
+<meta property="article:modified_time" content="2021-04-07T06:15:59.479Z">
 <meta property="article:author" content="未白">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="Vue">
@@ -246,10 +247,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-01 10:57:23 / 修改时间：18:29:52" itemprop="dateCreated datePublished" datetime="2021-04-01T10:57:23+08:00">2021-04-01</time>
+              <time title="创建时间：2021-04-01 10:57:23" itemprop="dateCreated datePublished" datetime="2021-04-01T10:57:23+08:00">2021-04-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-07 14:15:59" itemprop="dateModified" datetime="2021-04-07T14:15:59+08:00">2021-04-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -299,21 +306,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="Vue页面优化"><a href="#Vue页面优化" class="headerlink" title="Vue页面优化"></a>Vue页面优化</h4><ol>
-<li>页面载入进度条</li>
-</ol>
-<ul>
+        <h4 id="页面载入进度条"><a href="#页面载入进度条" class="headerlink" title="页面载入进度条"></a>页面载入进度条</h4><ul>
 <li>nprogress 安装 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save nprogress 或 yarn add nprogress</span><br></pre></td></tr></table></figure></li>
 <li>使用 :<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import NProgress from &#39;nprogress&#39; &#x2F;&#x2F; 引入nprogress插件</span><br><span class="line">import &#39;nprogress&#x2F;nprogress.css&#39;  &#x2F;&#x2F; 这个nprogress样式必须引入</span><br><span class="line">router.beforeEach(() &#x3D;&gt; &#123;</span><br><span class="line">  NProgress.start();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.afterEach(() &#x3D;&gt; &#123;</span><br><span class="line">  NProgress.done();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <span id="more"></span></li>
 </ul>
-<ol start="2">
-<li><p>滚动条美化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">::-webkit-scrollbar &#123;</span><br><span class="line">  width: 6px;</span><br><span class="line">  height: 6px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-track &#123;</span><br><span class="line">  width: 6px;</span><br><span class="line">  background: rgba(#101F1C, 0.1);</span><br><span class="line">  -webkit-border-radius: 2em;</span><br><span class="line">  -moz-border-radius: 2em;</span><br><span class="line">  border-radius: 2em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-thumb &#123;</span><br><span class="line">  background-color: rgba(#101F1C, 0.5);</span><br><span class="line">  background-clip: padding-box;</span><br><span class="line">  min-height: 28px;</span><br><span class="line">  -webkit-border-radius: 2em;</span><br><span class="line">  -moz-border-radius: 2em;</span><br><span class="line">  border-radius: 2em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-thumb:hover &#123;</span><br><span class="line">  background-color: rgba(#101F1C, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>移动端（高度）</p>
-</li>
-</ol>
-<ul>
+<h4 id="滚动条美化"><a href="#滚动条美化" class="headerlink" title="滚动条美化"></a>滚动条美化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">::-webkit-scrollbar &#123;</span><br><span class="line">  width: 6px;</span><br><span class="line">  height: 6px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-track &#123;</span><br><span class="line">  width: 6px;</span><br><span class="line">  background: rgba(#101F1C, 0.1);</span><br><span class="line">  -webkit-border-radius: 2em;</span><br><span class="line">  -moz-border-radius: 2em;</span><br><span class="line">  border-radius: 2em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-thumb &#123;</span><br><span class="line">  background-color: rgba(#101F1C, 0.5);</span><br><span class="line">  background-clip: padding-box;</span><br><span class="line">  min-height: 28px;</span><br><span class="line">  -webkit-border-radius: 2em;</span><br><span class="line">  -moz-border-radius: 2em;</span><br><span class="line">  border-radius: 2em;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-thumb:hover &#123;</span><br><span class="line">  background-color: rgba(#101F1C, 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="移动端（高度）"><a href="#移动端（高度）" class="headerlink" title="移动端（高度）"></a>移动端（高度）</h4><ul>
 <li>100vh === 视口高度 ??? 并不是， 实际上在移动端 100vh === 视口高度 + 浏览器工具栏（地址栏等等）的高度</li>
 <li>解决方案：<ul>
 <li>安装 vh-check <code>npm install vh-check --save</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vhCheck <span class="keyword">from</span> <span class="string">&#x27;vh-check&#x27;</span>;</span><br><span class="line">vhCheck(<span class="string">&#x27;browser-address-bar&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
@@ -321,19 +321,13 @@
 </ul>
 </li>
 </ul>
-<ol start="4">
-<li>全局样式</li>
-</ol>
-<ul>
+<h4 id="全局样式"><a href="#全局样式" class="headerlink" title="全局样式"></a>全局样式</h4><ul>
 <li>variable.scss: 全局变量管理 </li>
 <li>mixins.scss: 全局 Mixins 管理 </li>
 <li>global.scss: 全局样式</li>
 <li>其中 variable.scss 和 mixins.scss 会优先于 global.css 加载<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  css: &#123;</span><br><span class="line">    loaderOptions: &#123;</span><br><span class="line">      sass: &#123;</span><br><span class="line">        prependData: <span class="string">`</span></span><br><span class="line"><span class="string">        @import &#x27;@/styles/variable.scss&#x27;;</span></span><br><span class="line"><span class="string">        @import &#x27;@/styles/mixins.scss&#x27;;</span></span><br><span class="line"><span class="string">        `</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<ol start="5">
-<li>组件库</li>
-</ol>
-<ul>
+<h4 id="组件库"><a href="#组件库" class="headerlink" title="组件库"></a>组件库</h4><ul>
 <li>按需加载 Ant Design Vue 的组件样式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// babel.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  presets: [<span class="string">&#x27;@vue/app&#x27;</span>],</span><br><span class="line">  <span class="comment">// presets: [&#x27;@vue/cli-plugin-babel/preset&#x27;],</span></span><br><span class="line">  plugins: [[<span class="string">&#x27;import&#x27;</span>, &#123; <span class="attr">libraryName</span>: <span class="string">&#x27;ant-design-vue&#x27;</span>, <span class="attr">libraryDirectory</span>: <span class="string">&#x27;es&#x27;</span>, <span class="attr">style</span>: <span class="literal">true</span> &#125;]]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li>去掉无用的图标<ul>
 <li>创建icons.js 文件来管理Ant Design Vue图标<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; @&#x2F;src&#x2F;assets&#x2F;icons.js</span><br><span class="line">export &#123; default as LoadingOutline &#125; from &#39;@ant-design&#x2F;icons&#x2F;lib&#x2F;outline&#x2F;LoadingOutline&#39;;</span><br></pre></td></tr></table></figure></li>
@@ -342,10 +336,7 @@
 </li>
 <li>Moment 多国语, 只保留 zh-cn 语言包<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  chainWebpack: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    config</span><br><span class="line">      .plugin(<span class="string">&#x27;ContextReplacementPlugin&#x27;</span>)</span><br><span class="line">      .use(webpack.ContextReplacementPlugin, [<span class="regexp">/moment[/]locale$/</span>, <span class="regexp">/zh-cn/</span>]);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<ol start="6">
-<li>icon （雪碧图）</li>
-</ol>
-<ul>
+<h4 id="icon-（雪碧图）"><a href="#icon-（雪碧图）" class="headerlink" title="icon （雪碧图）"></a>icon （雪碧图）</h4><ul>
 <li><p>自动注册 Svg 图标，首先需要对 @/assets/icons 文件夹下的 svg 图标进行自动注册，需要对 webpack 和 svg-sprite-loader 进行了相关设置，文件全部打包成 svg-sprite。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  chainWebpack: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    config.module</span><br><span class="line">      .rule(<span class="string">&#x27;svg&#x27;</span>)</span><br><span class="line">      .exclude.add(resolve(<span class="string">&#x27;src/assets/icons&#x27;</span>))</span><br><span class="line">      .end();</span><br><span class="line"></span><br><span class="line">    config.module</span><br><span class="line">      .rule(<span class="string">&#x27;icons&#x27;</span>)</span><br><span class="line">      .test(<span class="regexp">/.svg$/</span>)</span><br><span class="line">      .include.add(resolve(<span class="string">&#x27;src/assets/icons&#x27;</span>))</span><br><span class="line">      .end()</span><br><span class="line">      .use(<span class="string">&#x27;svg-sprite-loader&#x27;</span>)</span><br><span class="line">      .loader(<span class="string">&#x27;svg-sprite-loader&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>写一个全局用的 Vue 组件 <m-svg />:</p>
@@ -363,13 +354,9 @@
 <li>图标的大小可以通过 width + height 属性改变。</li>
 <li>通过改变 font-size 属性改变，宽高 = font-zise * 1.4</li>
 </ul>
-<ol start="7">
-<li><p>跨域问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; vue.config.js</span><br><span class="line">devServer: &#123;</span><br><span class="line">  proxy: &#123;</span><br><span class="line">    &#39;&#x2F;api&#39;: &#123;</span><br><span class="line">      target: &#39;http:&#x2F;&#x2F;47.100.186.132&#x2F;your-path&#x2F;api&#39;,</span><br><span class="line">      ws: true,</span><br><span class="line">      changeOrigin: true,</span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        &#39;^&#x2F;api&#39;: &#39;&#39;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>路由</p>
-</li>
-</ol>
-<ul>
+<h4 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; vue.config.js</span><br><span class="line">devServer: &#123;</span><br><span class="line">  proxy: &#123;</span><br><span class="line">    &#39;&#x2F;api&#39;: &#123;</span><br><span class="line">      target: &#39;http:&#x2F;&#x2F;47.100.186.132&#x2F;your-path&#x2F;api&#39;,</span><br><span class="line">      ws: true,</span><br><span class="line">      changeOrigin: true,</span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        &#39;^&#x2F;api&#39;: &#39;&#39;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h4><ul>
 <li><p>Layout</p>
 <ul>
 <li><p>frameIn：基于 BasicLayout，通常需要登录或权限认证的路由。</p>
@@ -399,18 +386,12 @@
 </ul>
 </li>
 </ul>
-<ol start="9">
-<li>构建优化</li>
-</ol>
-<ul>
-<li><p>包分析工具</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> WebpackBundleAnalyzer = <span class="built_in">require</span>(<span class="string">&#x27;webpack-bundle-analyzer&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  chainWebpack: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.use_analyzer) &#123;</span><br><span class="line">      config</span><br><span class="line">        .plugin(<span class="string">&#x27;webpack-bundle-analyzer&#x27;</span>)</span><br><span class="line">        .use(WebpackBundleAnalyzer.BundleAnalyzerPlugin);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-<li><p>开启 Gzip</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">  config</span><br><span class="line">    .plugin(<span class="string">&#x27;CompressionPlugin&#x27;</span>)</span><br><span class="line">    .use(CompressionPlugin, []);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
-<li><p>路由懒加载</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">  name: <span class="string">&#x27;Home&#x27;</span>,</span><br><span class="line">  component: <span class="function">() =&gt;</span> <span class="keyword">import</span>(</span><br><span class="line">    <span class="comment">/* webpackChunkName: &quot;home&quot; */</span> <span class="string">&#x27;@/views/home/index.vue&#x27;</span></span><br><span class="line">  ),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
 </li>
+</ul>
+<h4 id="构建优化"><a href="#构建优化" class="headerlink" title="构建优化"></a>构建优化</h4><ul>
+<li>包分析工具<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> WebpackBundleAnalyzer = <span class="built_in">require</span>(<span class="string">&#x27;webpack-bundle-analyzer&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  chainWebpack: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.use_analyzer) &#123;</span><br><span class="line">      config</span><br><span class="line">        .plugin(<span class="string">&#x27;webpack-bundle-analyzer&#x27;</span>)</span><br><span class="line">        .use(WebpackBundleAnalyzer.BundleAnalyzerPlugin);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>开启 Gzip<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chainWebpack: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">  config</span><br><span class="line">    .plugin(<span class="string">&#x27;CompressionPlugin&#x27;</span>)</span><br><span class="line">    .use(CompressionPlugin, []);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+<li>路由懒加载<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">  name: <span class="string">&#x27;Home&#x27;</span>,</span><br><span class="line">  component: <span class="function">() =&gt;</span> <span class="keyword">import</span>(</span><br><span class="line">    <span class="comment">/* webpackChunkName: &quot;home&quot; */</span> <span class="string">&#x27;@/views/home/index.vue&#x27;</span></span><br><span class="line">  ),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
@@ -431,10 +412,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/31/%E5%B7%A5%E5%85%B7%E7%B1%BB%E9%A1%B9%E7%9B%AE%E5%8F%8A%E7%BD%91%E7%AB%99/" rel="prev" title="工具类项目及网站">
-      <i class="fa fa-chevron-left"></i> 工具类项目及网站
+    <a href="/2021/03/31/%E5%B7%A5%E5%85%B7%20&%20%E7%BD%91%E7%AB%99/" rel="prev" title="工具 & 网站">
+      <i class="fa fa-chevron-left"></i> 工具 & 网站
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/06/%E8%AE%B0%E5%BD%95vue%E5%92%8CD3%E5%A4%84%E7%90%86%E7%A9%BF%E9%80%8F%E5%9B%BE/" rel="next" title="记录vue和D3处理穿透图">
+      记录vue和D3处理穿透图 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -494,7 +478,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vue%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">Vue页面优化</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E8%BD%BD%E5%85%A5%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="nav-number">1.</span> <span class="nav-text">页面载入进度条</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%BE%8E%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">滚动条美化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%EF%BC%88%E9%AB%98%E5%BA%A6%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">移动端（高度）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">全局样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E5%BA%93"><span class="nav-number">5.</span> <span class="nav-text">组件库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#icon-%EF%BC%88%E9%9B%AA%E7%A2%A7%E5%9B%BE%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">icon （雪碧图）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">跨域问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1"><span class="nav-number">8.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E4%BC%98%E5%8C%96"><span class="nav-number">9.</span> <span class="nav-text">构建优化</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -512,7 +496,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -525,7 +509,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -825,12 +809,12 @@ if(canvas.getContext){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">7k</span>
+    <span title="站点总字数">50k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">7 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
 </div><script color="0,0,255" opacity="0.2" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
         
@@ -848,6 +832,8 @@ if(canvas.getContext){
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
