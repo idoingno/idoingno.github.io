@@ -1178,7 +1178,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #035e79;
+  background: #04ff33;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1494,8 +1494,6 @@ pre .javascript .function {
   transition-timing-function: ease-in-out;
 }
 .back-to-top {
-  background: #222;
-  bottom: -100px;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
@@ -1505,7 +1503,10 @@ pre .javascript .function {
   position: fixed;
   transition-property: bottom;
   z-index: 1300;
-  width: 24px;
+  top: -630px;
+  transition: top ease 2s;
+  width: 70px;
+  height: 900px;
 }
 .back-to-top span {
   display: none;
@@ -1514,7 +1515,7 @@ pre .javascript .function {
   color: #fc6423;
 }
 .back-to-top.back-to-top-on {
-  bottom: 30px;
+  top: 0;
 }
 @media (max-width: 991px) {
   .back-to-top {
@@ -10954,4 +10955,26 @@ none
   100% {
     -moz-transform: matrix(1, 0, 0, 1, 175px, 133px);
   }
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  width: 6px;
+  background: rgba(16,31,28,0.1);
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(16,31,28,0.5);
+  background-clip: padding-box;
+  min-height: 28px;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #101f1c;
 }
