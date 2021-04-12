@@ -1178,7 +1178,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #04ff33;
+  background: #ff9a1c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1505,6 +1505,9 @@ pre .javascript .function {
   z-index: 1300;
   top: -630px;
   transition: top ease 2s;
+  animation: wobble 5s infinite;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
   width: 70px;
   height: 900px;
 }
@@ -1521,6 +1524,62 @@ pre .javascript .function {
   .back-to-top {
     left: 20px;
     opacity: 0.8;
+  }
+}
+@-moz-keyframes wobble {
+  0% {
+    transform: rotate(2deg);
+    transform-origin: top center;
+  }
+  50% {
+    transform: rotate(-2deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: rotate(2deg);
+    transform-origin: top center;
+  }
+}
+@-webkit-keyframes wobble {
+  0% {
+    transform: rotate(2deg);
+    transform-origin: top center;
+  }
+  50% {
+    transform: rotate(-2deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: rotate(2deg);
+    transform-origin: top center;
+  }
+}
+@-o-keyframes wobble {
+  0% {
+    transform: rotate(2deg);
+    transform-origin: top center;
+  }
+  50% {
+    transform: rotate(-2deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: rotate(2deg);
+    transform-origin: top center;
+  }
+}
+@keyframes wobble {
+  0% {
+    transform: rotate(2deg);
+    transform-origin: top center;
+  }
+  50% {
+    transform: rotate(-2deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: rotate(2deg);
+    transform-origin: top center;
   }
 }
 .reading-progress-bar {
