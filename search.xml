@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Dom diff</title>
+    <url>/2021/05/07/Dom%20diff/</url>
+    <content><![CDATA[<h4 id="Dom-diff"><a href="#Dom-diff" class="headerlink" title="Dom diff"></a>Dom diff</h4><p>通过<code>JS</code>层面的计算，返回一个patch对象，即补丁对象，在通过特定的操作解析<code>patch</code>对象，完成页面的重新渲染。</p>
+<blockquote>
+<p>完全对比方案 时间复杂度为 O(n³)</p>
+</blockquote>
+<p>关于 O(n³) 的由来。由于左树中任意节点都可能出现在右树，所以必须在对左树深度遍历的同时，对右树进行深度遍历，找到每个节点的对应关系，这里的时间复杂度是 O(n²)，之后需要对树的各节点进行增删移的操作，这个过程简单可以理解为加了一层遍历循环，因此再乘一个 n。</p>
+<p><img src="http://lc-zk6rgik4.cn-n1.lcfile.com/dYNEUDLoLYIaiNEANqM8KlancTNc6XXN/diff1.png"></p>
+<h4 id="Vue-的-Dom-diff"><a href="#Vue-的-Dom-diff" class="headerlink" title="Vue 的 Dom diff"></a>Vue 的 Dom diff</h4><blockquote>
+<p>同层比较 时间复杂度为 O(n)</p>
+</blockquote>
+<ol>
+<li>尽量保证不要发生 dom 位移, 左右夹击跳过不变的</li>
+<li>找到<strong>最长连续子串</strong>保持不动，移动其他元素</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 动态规划，设 dp(i) 为以第 i 个字符串结尾的最长连续子串长度，一次 O(n) 循环即可。</span></span><br><span class="line">dp(i) = num[i] &gt; num[i - <span class="number">1</span>] ? dp(i - <span class="number">1</span>) + <span class="number">1</span> : <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="React-的-Dom-diff"><a href="#React-的-Dom-diff" class="headerlink" title="React 的 Dom diff"></a>React 的 Dom diff</h4><blockquote>
+<p>同层比较 时间复杂度为 O(n)</p>
+</blockquote>
+<ol>
+<li>React 采用了 <strong>仅右移策略</strong>, 对元素发生的位置变化，只会将其移动到右边，那么右边移完了，其他位置也就有序了</li>
+<li>在大部分从左往右移的业务场景中，得到了较好的性能</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>Javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Vue页面优化</title>
     <url>/2021/04/01/Vue%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<h4 id="页面载入进度条"><a href="#页面载入进度条" class="headerlink" title="页面载入进度条"></a>页面载入进度条</h4><ul>
@@ -100,30 +136,16 @@
       </tags>
   </entry>
   <entry>
-    <title>三月的诗</title>
-    <url>/2021/03/23/%E4%B8%89%E6%9C%88%E7%9A%84%E8%AF%97/</url>
-    <content><![CDATA[<p>孤山寺北贾亭西，水面初平云脚低。</p>
-<p>几处早莺争暖树，谁家新燕啄春泥。</p>
-<p>乱花渐欲迷人眼，浅草才能没马蹄。</p>
-<p>最爱湖东行不足，绿杨阴里白沙堤。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——唐·白居易《钱塘湖春行》</p>
-<span id="more"></span>
-<br />
+    <title>知白守黑</title>
+    <url>/2021/03/24/%E7%9F%A5%E7%99%BD%E5%AE%88%E9%BB%91/</url>
+    <content><![CDATA[<h2 id="知其白，守其黑，为天下式；"><a href="#知其白，守其黑，为天下式；" class="headerlink" title="知其白，守其黑，为天下式；"></a>知其白，守其黑，为天下式；</h2><span id="more"></span>
 
-
-
-<p>闻道春还未相识，走傍寒梅访消息。</p>
-<p>昨夜东风入武阳，陌头杨柳黄金色。</p>
-<p>碧水浩浩云茫茫，美人不来空断肠。</p>
-<p>预拂青山一片石，与君连日醉壶觞。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——唐·李白《早春寄王汉阳 》</p>
-]]></content>
+<h4 id="知其雄，守其雌，为天下谿；为天下谿，常德不离，复归于婴儿。知其白，守其黑，为天下式；为天下式，常德不忒，复归於无极。知其荣，守其辱，为天下谷；为天下谷，常德乃足，复归于朴。《道德经·第二十八章》"><a href="#知其雄，守其雌，为天下谿；为天下谿，常德不离，复归于婴儿。知其白，守其黑，为天下式；为天下式，常德不忒，复归於无极。知其荣，守其辱，为天下谷；为天下谷，常德乃足，复归于朴。《道德经·第二十八章》" class="headerlink" title="知其雄，守其雌，为天下谿；为天下谿，常德不离，复归于婴儿。知其白，守其黑，为天下式；为天下式，常德不忒，复归於无极。知其荣，守其辱，为天下谷；为天下谷，常德乃足，复归于朴。《道德经·第二十八章》"></a>知其雄，守其雌，为天下谿；为天下谿，常德不离，复归于婴儿。知其白，守其黑，为天下式；为天下式，常德不忒，复归於无极。知其荣，守其辱，为天下谷；为天下谷，常德乃足，复归于朴。《道德经·第二十八章》</h4>]]></content>
       <categories>
         <category>随笔</category>
       </categories>
       <tags>
         <tag>生活</tag>
-        <tag>诗句</tag>
       </tags>
   </entry>
   <entry>
@@ -244,6 +266,7 @@
 <ul>
 <li>自由开源的学习编程社区</li>
 <li><a href="https://github.com/freeCodeCamp/freeCodeCamp">Github</a></li>
+<li><a href="https://free.code-nav.cn/#/./%E7%BC%96%E7%A8%8B%E4%B9%A6%E7%B1%8D/README?id=javascript">在线浏览</a></li>
 </ul>
 </li>
 <li><p>CSLearning</p>
@@ -282,16 +305,30 @@
       </tags>
   </entry>
   <entry>
-    <title>知白守黑</title>
-    <url>/2021/03/24/%E7%9F%A5%E7%99%BD%E5%AE%88%E9%BB%91/</url>
-    <content><![CDATA[<h2 id="知其白，守其黑，为天下式；"><a href="#知其白，守其黑，为天下式；" class="headerlink" title="知其白，守其黑，为天下式；"></a>知其白，守其黑，为天下式；</h2><span id="more"></span>
+    <title>三月的诗</title>
+    <url>/2021/03/23/%E4%B8%89%E6%9C%88%E7%9A%84%E8%AF%97/</url>
+    <content><![CDATA[<p>孤山寺北贾亭西，水面初平云脚低。</p>
+<p>几处早莺争暖树，谁家新燕啄春泥。</p>
+<p>乱花渐欲迷人眼，浅草才能没马蹄。</p>
+<p>最爱湖东行不足，绿杨阴里白沙堤。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——唐·白居易《钱塘湖春行》</p>
+<span id="more"></span>
+<br />
 
-<h4 id="知其雄，守其雌，为天下谿；为天下谿，常德不离，复归于婴儿。知其白，守其黑，为天下式；为天下式，常德不忒，复归於无极。知其荣，守其辱，为天下谷；为天下谷，常德乃足，复归于朴。《道德经·第二十八章》"><a href="#知其雄，守其雌，为天下谿；为天下谿，常德不离，复归于婴儿。知其白，守其黑，为天下式；为天下式，常德不忒，复归於无极。知其荣，守其辱，为天下谷；为天下谷，常德乃足，复归于朴。《道德经·第二十八章》" class="headerlink" title="知其雄，守其雌，为天下谿；为天下谿，常德不离，复归于婴儿。知其白，守其黑，为天下式；为天下式，常德不忒，复归於无极。知其荣，守其辱，为天下谷；为天下谷，常德乃足，复归于朴。《道德经·第二十八章》"></a>知其雄，守其雌，为天下谿；为天下谿，常德不离，复归于婴儿。知其白，守其黑，为天下式；为天下式，常德不忒，复归於无极。知其荣，守其辱，为天下谷；为天下谷，常德乃足，复归于朴。《道德经·第二十八章》</h4>]]></content>
+
+
+<p>闻道春还未相识，走傍寒梅访消息。</p>
+<p>昨夜东风入武阳，陌头杨柳黄金色。</p>
+<p>碧水浩浩云茫茫，美人不来空断肠。</p>
+<p>预拂青山一片石，与君连日醉壶觞。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——唐·李白《早春寄王汉阳 》</p>
+]]></content>
       <categories>
         <category>随笔</category>
       </categories>
       <tags>
         <tag>生活</tag>
+        <tag>诗句</tag>
       </tags>
   </entry>
   <entry>
@@ -557,11 +594,66 @@
 <li>TCP连接(三次握手, 四次挥手)</li>
 </ul>
 <h4 id="性能相关"><a href="#性能相关" class="headerlink" title="性能相关"></a>性能相关</h4><ul>
-<li>图片优化的方式</li>
-<li>500 张图片，如何实现预加载优化</li>
-<li>懒加载具体实现</li>
-<li>减少http请求的方式</li>
-<li>webpack如何配置大型项目</li>
+<li><p>图片优化的方式</p>
+<ul>
+<li>懒加载具体实现<br><strong>可以使用 vue-lazyload</strong><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 安装</span></span><br><span class="line">npm install vue-lazyload --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment">// 入口文件 man.js 中引入并使用</span></span><br><span class="line"><span class="keyword">import</span> VueLazyload <span class="keyword">from</span> <span class="string">&#x27;vue-lazyload&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueLazyload)</span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line">Vue.use(VueLazyload, &#123;</span><br><span class="line">  preLoad: <span class="number">1.3</span>,</span><br><span class="line">  error: <span class="string">&#x27;dist/error.png&#x27;</span>,</span><br><span class="line">  loading: <span class="string">&#x27;dist/loading.gif&#x27;</span>,</span><br><span class="line">  attempt: <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 vue 文件中将 img 标签的 src 属性直接改为 v-lazy ，从而将图片显示方式更改为懒加载显示</span></span><br><span class="line">&lt;img v-lazy=<span class="string">&quot;/static/img/1.png&quot;</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>500 张图片，如何实现预加载优化</p>
+</li>
+<li><p>减少http请求的方式</p>
+</li>
+<li><p>webpack如何配置大型项目</p>
+</li>
+<li><p>Vue代码层面的优化</p>
+<ul>
+<li>v-if 和 v-show 区分使用场景</li>
+</ul>
+<blockquote>
+<p>v-if 是 真正的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建；也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。</p>
+<p> v-show 就简单得多， 不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 的 display 属性进行切换。</p>
+<p>所以，v-if 适用于在运行时很少改变条件，不需要频繁切换条件的场景；v-show 则适用于需要非常频繁切换条件的场景。</p>
+</blockquote>
+<ul>
+<li>v-for 遍历必须为 item 添加 key，且避免同时使用 v-if</li>
+</ul>
+<blockquote>
+<p>在列表数据进行遍历渲染时，需要为每一项 item 设置唯一 key 值，方便 Vue.js 内部机制精准找到该条列表数据。当 state 更新时，新的状态值和旧的状态值对比，较快地定位到 diff 。</p>
+<p>v-for 比 v-if 优先级高，如果每一次都需要遍历整个数组，将会影响速度，尤其是当之需要渲染很小一部分的时候，必要情况下应该替换成 computed 属性。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li</span><br><span class="line">    v-<span class="keyword">for</span>=<span class="string">&quot;user in activeUsers&quot;</span></span><br><span class="line">    :key=<span class="string">&quot;user.id&quot;</span>&gt;</span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">computed: &#123;</span><br><span class="line">  activeUsers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.users.filter(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> user.isActive</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Webpack 层面的优化</p>
+<ul>
+<li><p>Webpack 对图片进行压缩</p>
+<blockquote>
+<p>可以在 webpack.base.conf.js 中 url-loader 中设置 limit 大小来对图片处理，对小于 limit 的图片转化为 base64 格式，其余的不做操作。</p>
+<p>所以对有些较大的图片资源，在请求资源的时候，加载会很慢，我们可以用 image-webpack-loader来压缩图片</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 安装 image-webpack-loader</span></span><br><span class="line">npm install image-webpack-loader --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment">// webpack.base.conf.js 中进行配置</span></span><br><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span>,</span><br><span class="line">  use:[</span><br><span class="line">    &#123;</span><br><span class="line">    loader: <span class="string">&#x27;url-loader&#x27;</span>,</span><br><span class="line">    options: &#123;</span><br><span class="line">      limit: <span class="number">10000</span>,</span><br><span class="line">      name: utils.assetsPath(<span class="string">&#x27;img/[name].[hash:7].[ext]&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      loader: <span class="string">&#x27;image-webpack-loader&#x27;</span>,</span><br><span class="line">      options: &#123;</span><br><span class="line">        bypassOnDebug: <span class="literal">true</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>减少 ES6 转为 ES5 的冗余代码</p>
+<blockquote>
+<p>在默认情况下， Babel 会在每个输出文件中内嵌这些依赖的辅助函数代码，如果多个源代码文件都依赖这些辅助函数，那么这些辅助函数的代码将会出现很多次，造成代码冗余。</p>
+<p>为了不让这些辅助函数的代码重复出现，可以在依赖它们时通过 require(‘babel-runtime/helpers/createClass’) 的方式导入，这样就能做到只让它们出现一次。</p>
+<p>babel-plugin-transform-runtime 插件就是用来实现这个作用的，将相关辅助函数进行替换成导入语句，从而减小 babel 编译出来的代码的文件大小。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 安装 babel-plugin-transform-runtime </span></span><br><span class="line">npm install babel-plugin-transform-runtime --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改 .babelrc 配置文件</span></span><br><span class="line"><span class="string">&quot;plugins&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;transform-runtime&quot;</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li><p>提取公共代码</p>
+<blockquote>
+<p>将多个页面的公共代码抽离成单独的文件，来优化相同的资源 。Webpack 内置了专门用于提取多个Chunk 中的公共部分的插件 CommonsChunkPlugin。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 所有在 package.json 里面依赖的包，都会被打包进 vendor.js 这个文件中。</span></span><br><span class="line"><span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">  name: <span class="string">&#x27;vendor&#x27;</span>,</span><br><span class="line">  minChunks: <span class="function"><span class="keyword">function</span>(<span class="params"><span class="built_in">module</span>, count</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="built_in">module</span>.resource &amp;&amp;</span><br><span class="line">      /\.js$/.test(<span class="built_in">module</span>.resource) &amp;&amp;</span><br><span class="line">      <span class="built_in">module</span>.resource.indexOf(</span><br><span class="line">        path.join(__dirname, <span class="string">&#x27;../node_modules&#x27;</span>)</span><br><span class="line">      ) === <span class="number">0</span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;),</span><br><span class="line"><span class="comment">// 抽取出代码模块的映射关系</span></span><br><span class="line"><span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">  name: <span class="string">&#x27;manifest&#x27;</span>,</span><br><span class="line">  chunks: [<span class="string">&#x27;vendor&#x27;</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>构建结果输出分析</p>
+<blockquote>
+<p>可视化分析工具 webpack-bundle-analyzer</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack.prod.conf.js 进行配置</span></span><br><span class="line"><span class="keyword">if</span> (config.build.bundleAnalyzerReport) &#123;</span><br><span class="line">  <span class="keyword">var</span> BundleAnalyzerPlugin =   <span class="built_in">require</span>(<span class="string">&#x27;webpack-bundle-analyzer&#x27;</span>).BundleAnalyzerPlugin;</span><br><span class="line">  webpackConfig.plugins.push(<span class="keyword">new</span> BundleAnalyzerPlugin());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>执行 $ npm run build --report 后生成分析报告</p>
+</blockquote>
+</li>
+</ul>
+</li>
 </ul>
 <h4 id="前端知识点："><a href="#前端知识点：" class="headerlink" title="前端知识点："></a>前端知识点：</h4><h5 id="🌈Javascript的数据类型"><a href="#🌈Javascript的数据类型" class="headerlink" title="🌈Javascript的数据类型"></a>🌈Javascript的数据类型</h5><p>JavaScript一共有8种数据类型，其中有7种基本数据类型：Undefined、Null、Boolean、Number、String、Symbol（es6新增，表示独一无二的值）和BigInt（es10新增）；<br>1种引用数据类型——Object（Object本质上是由一组无序的名值对组成的）。</p>
 <p>原始数据类型：直接存储在栈（stack）中，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储。</p>
@@ -1207,10 +1299,10 @@
       </categories>
       <tags>
         <tag>前端</tag>
+        <tag>Javascript</tag>
         <tag>Vue</tag>
         <tag>HTML</tag>
         <tag>css</tag>
-        <tag>Javascript</tag>
       </tags>
   </entry>
 </search>

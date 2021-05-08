@@ -33,13 +33,13 @@
 <meta property="og:image" content="http://lc-zk6rgik4.cn-n1.lcfile.com/wBORqzX64VulgYp5D72XJKTzsbaLYTQJ/1.webp">
 <meta property="og:image" content="http://lc-zk6rgik4.cn-n1.lcfile.com/qDHql9BEEbzj99BB2a72hgV2g0V0SGeb/2.webp">
 <meta property="article:published_time" content="2021-04-07T08:55:05.000Z">
-<meta property="article:modified_time" content="2021-04-08T10:03:57.286Z">
+<meta property="article:modified_time" content="2021-05-07T03:07:42.872Z">
 <meta property="article:author" content="未白">
 <meta property="article:tag" content="前端">
+<meta property="article:tag" content="Javascript">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="css">
-<meta property="article:tag" content="Javascript">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://lc-zk6rgik4.cn-n1.lcfile.com/wBORqzX64VulgYp5D72XJKTzsbaLYTQJ/1.webp">
 
@@ -261,7 +261,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 18:03:57" itemprop="dateModified" datetime="2021-04-08T18:03:57+08:00">2021-04-08</time>
+                <time title="修改时间：2021-05-07 11:07:42" itemprop="dateModified" datetime="2021-05-07T11:07:42+08:00">2021-05-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -293,14 +293,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>42k</span>
+              <span>45k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>38 分钟</span>
+              <span>41 分钟</span>
             </span>
 
         </div>
@@ -342,11 +342,66 @@
 <li>TCP连接(三次握手, 四次挥手)</li>
 </ul>
 <h4 id="性能相关"><a href="#性能相关" class="headerlink" title="性能相关"></a>性能相关</h4><ul>
-<li>图片优化的方式</li>
-<li>500 张图片，如何实现预加载优化</li>
-<li>懒加载具体实现</li>
-<li>减少http请求的方式</li>
-<li>webpack如何配置大型项目</li>
+<li><p>图片优化的方式</p>
+<ul>
+<li>懒加载具体实现<br><strong>可以使用 vue-lazyload</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装</span></span><br><span class="line">npm install vue-lazyload --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment">// 入口文件 man.js 中引入并使用</span></span><br><span class="line"><span class="keyword">import</span> VueLazyload <span class="keyword">from</span> <span class="string">&#x27;vue-lazyload&#x27;</span></span><br><span class="line"></span><br><span class="line">Vue.use(VueLazyload)</span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line">Vue.use(VueLazyload, &#123;</span><br><span class="line">  preLoad: <span class="number">1.3</span>,</span><br><span class="line">  error: <span class="string">&#x27;dist/error.png&#x27;</span>,</span><br><span class="line">  loading: <span class="string">&#x27;dist/loading.gif&#x27;</span>,</span><br><span class="line">  attempt: <span class="number">1</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 vue 文件中将 img 标签的 src 属性直接改为 v-lazy ，从而将图片显示方式更改为懒加载显示</span></span><br><span class="line">&lt;img v-lazy=<span class="string">&quot;/static/img/1.png&quot;</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>500 张图片，如何实现预加载优化</p>
+</li>
+<li><p>减少http请求的方式</p>
+</li>
+<li><p>webpack如何配置大型项目</p>
+</li>
+<li><p>Vue代码层面的优化</p>
+<ul>
+<li>v-if 和 v-show 区分使用场景</li>
+</ul>
+<blockquote>
+<p>v-if 是 真正的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建；也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。</p>
+<p> v-show 就简单得多， 不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 的 display 属性进行切换。</p>
+<p>所以，v-if 适用于在运行时很少改变条件，不需要频繁切换条件的场景；v-show 则适用于需要非常频繁切换条件的场景。</p>
+</blockquote>
+<ul>
+<li>v-for 遍历必须为 item 添加 key，且避免同时使用 v-if</li>
+</ul>
+<blockquote>
+<p>在列表数据进行遍历渲染时，需要为每一项 item 设置唯一 key 值，方便 Vue.js 内部机制精准找到该条列表数据。当 state 更新时，新的状态值和旧的状态值对比，较快地定位到 diff 。</p>
+<p>v-for 比 v-if 优先级高，如果每一次都需要遍历整个数组，将会影响速度，尤其是当之需要渲染很小一部分的时候，必要情况下应该替换成 computed 属性。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li</span><br><span class="line">    v-<span class="keyword">for</span>=<span class="string">&quot;user in activeUsers&quot;</span></span><br><span class="line">    :key=<span class="string">&quot;user.id&quot;</span>&gt;</span><br><span class="line">    &#123;&#123; user.name &#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">computed: &#123;</span><br><span class="line">  activeUsers: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.users.filter(<span class="function"><span class="keyword">function</span> (<span class="params">user</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> user.isActive</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Webpack 层面的优化</p>
+<ul>
+<li><p>Webpack 对图片进行压缩</p>
+<blockquote>
+<p>可以在 webpack.base.conf.js 中 url-loader 中设置 limit 大小来对图片处理，对小于 limit 的图片转化为 base64 格式，其余的不做操作。</p>
+<p>所以对有些较大的图片资源，在请求资源的时候，加载会很慢，我们可以用 image-webpack-loader来压缩图片</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装 image-webpack-loader</span></span><br><span class="line">npm install image-webpack-loader --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment">// webpack.base.conf.js 中进行配置</span></span><br><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span>,</span><br><span class="line">  use:[</span><br><span class="line">    &#123;</span><br><span class="line">    loader: <span class="string">&#x27;url-loader&#x27;</span>,</span><br><span class="line">    options: &#123;</span><br><span class="line">      limit: <span class="number">10000</span>,</span><br><span class="line">      name: utils.assetsPath(<span class="string">&#x27;img/[name].[hash:7].[ext]&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      loader: <span class="string">&#x27;image-webpack-loader&#x27;</span>,</span><br><span class="line">      options: &#123;</span><br><span class="line">        bypassOnDebug: <span class="literal">true</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>减少 ES6 转为 ES5 的冗余代码</p>
+<blockquote>
+<p>在默认情况下， Babel 会在每个输出文件中内嵌这些依赖的辅助函数代码，如果多个源代码文件都依赖这些辅助函数，那么这些辅助函数的代码将会出现很多次，造成代码冗余。</p>
+<p>为了不让这些辅助函数的代码重复出现，可以在依赖它们时通过 require(‘babel-runtime/helpers/createClass’) 的方式导入，这样就能做到只让它们出现一次。</p>
+<p>babel-plugin-transform-runtime 插件就是用来实现这个作用的，将相关辅助函数进行替换成导入语句，从而减小 babel 编译出来的代码的文件大小。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装 babel-plugin-transform-runtime </span></span><br><span class="line">npm install babel-plugin-transform-runtime --save-dev</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改 .babelrc 配置文件</span></span><br><span class="line"><span class="string">&quot;plugins&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;transform-runtime&quot;</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li><p>提取公共代码</p>
+<blockquote>
+<p>将多个页面的公共代码抽离成单独的文件，来优化相同的资源 。Webpack 内置了专门用于提取多个Chunk 中的公共部分的插件 CommonsChunkPlugin。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 所有在 package.json 里面依赖的包，都会被打包进 vendor.js 这个文件中。</span></span><br><span class="line"><span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">  name: <span class="string">&#x27;vendor&#x27;</span>,</span><br><span class="line">  minChunks: <span class="function"><span class="keyword">function</span>(<span class="params"><span class="built_in">module</span>, count</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="built_in">module</span>.resource &amp;&amp;</span><br><span class="line">      /\.js$/.test(<span class="built_in">module</span>.resource) &amp;&amp;</span><br><span class="line">      <span class="built_in">module</span>.resource.indexOf(</span><br><span class="line">        path.join(__dirname, <span class="string">&#x27;../node_modules&#x27;</span>)</span><br><span class="line">      ) === <span class="number">0</span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;),</span><br><span class="line"><span class="comment">// 抽取出代码模块的映射关系</span></span><br><span class="line"><span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">  name: <span class="string">&#x27;manifest&#x27;</span>,</span><br><span class="line">  chunks: [<span class="string">&#x27;vendor&#x27;</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>构建结果输出分析</p>
+<blockquote>
+<p>可视化分析工具 webpack-bundle-analyzer</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.prod.conf.js 进行配置</span></span><br><span class="line"><span class="keyword">if</span> (config.build.bundleAnalyzerReport) &#123;</span><br><span class="line">  <span class="keyword">var</span> BundleAnalyzerPlugin =   <span class="built_in">require</span>(<span class="string">&#x27;webpack-bundle-analyzer&#x27;</span>).BundleAnalyzerPlugin;</span><br><span class="line">  webpackConfig.plugins.push(<span class="keyword">new</span> BundleAnalyzerPlugin());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>执行 $ npm run build --report 后生成分析报告</p>
+</blockquote>
+</li>
+</ul>
+</li>
 </ul>
 <h4 id="前端知识点："><a href="#前端知识点：" class="headerlink" title="前端知识点："></a>前端知识点：</h4><h5 id="🌈Javascript的数据类型"><a href="#🌈Javascript的数据类型" class="headerlink" title="🌈Javascript的数据类型"></a>🌈Javascript的数据类型</h5><p>JavaScript一共有8种数据类型，其中有7种基本数据类型：Undefined、Null、Boolean、Number、String、Symbol（es6新增，表示独一无二的值）和BigInt（es10新增）；<br>1种引用数据类型——Object（Object本质上是由一组无序的名值对组成的）。</p>
 <p>原始数据类型：直接存储在栈（stack）中，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储。</p>
@@ -996,10 +1051,10 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-tags"></i># 前端</a>
+              <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tags"></i># Javascript</a>
               <a href="/tags/Vue/" rel="tag"><i class="fa fa-tags"></i># Vue</a>
               <a href="/tags/HTML/" rel="tag"><i class="fa fa-tags"></i># HTML</a>
               <a href="/tags/css/" rel="tag"><i class="fa fa-tags"></i># css</a>
-              <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tags"></i># Javascript</a>
           </div>
 
         
@@ -1092,7 +1147,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1405,12 +1460,12 @@ if(canvas.getContext){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">63k</span>
+    <span title="站点总字数">66k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">57 分钟</span>
+    <span title="站点阅读时长">1:01</span>
 </div><script color="0,0,255" opacity="0.2" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
         

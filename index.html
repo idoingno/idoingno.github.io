@@ -221,6 +221,125 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/07/Dom%20diff/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="未白">
+      <meta itemprop="description" content="知其白，守其黑，为天下式；">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逆旅">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/07/Dom%20diff/" class="post-title-link" itemprop="url">Dom diff</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-07 11:08:14 / 修改时间：14:34:02" itemprop="dateCreated datePublished" datetime="2021-05-07T11:08:14+08:00">2021-05-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/07/Dom%20diff/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/07/Dom%20diff/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>461</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Dom-diff"><a href="#Dom-diff" class="headerlink" title="Dom diff"></a>Dom diff</h4><p>通过<code>JS</code>层面的计算，返回一个patch对象，即补丁对象，在通过特定的操作解析<code>patch</code>对象，完成页面的重新渲染。</p>
+<blockquote>
+<p>完全对比方案 时间复杂度为 O(n³)</p>
+</blockquote>
+<p>关于 O(n³) 的由来。由于左树中任意节点都可能出现在右树，所以必须在对左树深度遍历的同时，对右树进行深度遍历，找到每个节点的对应关系，这里的时间复杂度是 O(n²)，之后需要对树的各节点进行增删移的操作，这个过程简单可以理解为加了一层遍历循环，因此再乘一个 n。</p>
+<p><img src="http://lc-zk6rgik4.cn-n1.lcfile.com/dYNEUDLoLYIaiNEANqM8KlancTNc6XXN/diff1.png"></p>
+<h4 id="Vue-的-Dom-diff"><a href="#Vue-的-Dom-diff" class="headerlink" title="Vue 的 Dom diff"></a>Vue 的 Dom diff</h4><blockquote>
+<p>同层比较 时间复杂度为 O(n)</p>
+</blockquote>
+<ol>
+<li>尽量保证不要发生 dom 位移, 左右夹击跳过不变的</li>
+<li>找到<strong>最长连续子串</strong>保持不动，移动其他元素</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 动态规划，设 dp(i) 为以第 i 个字符串结尾的最长连续子串长度，一次 O(n) 循环即可。</span></span><br><span class="line">dp(i) = num[i] &gt; num[i - <span class="number">1</span>] ? dp(i - <span class="number">1</span>) + <span class="number">1</span> : <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="React-的-Dom-diff"><a href="#React-的-Dom-diff" class="headerlink" title="React 的 Dom diff"></a>React 的 Dom diff</h4><blockquote>
+<p>同层比较 时间复杂度为 O(n)</p>
+</blockquote>
+<ol>
+<li>React 采用了 <strong>仅右移策略</strong>, 对元素发生的位置变化，只会将其移动到右边，那么右边移完了，其他位置也就有序了</li>
+<li>在大部分从左往右移的业务场景中，得到了较好的性能</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/09/Vue%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -356,7 +475,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-08 18:03:57" itemprop="dateModified" datetime="2021-04-08T18:03:57+08:00">2021-04-08</time>
+                <time title="修改时间：2021-05-07 11:07:42" itemprop="dateModified" datetime="2021-05-07T11:07:42+08:00">2021-05-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -388,14 +507,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>42k</span>
+              <span>45k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>38 分钟</span>
+              <span>41 分钟</span>
             </span>
 
         </div>
@@ -705,7 +824,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-09 16:38:11" itemprop="dateModified" datetime="2021-04-09T16:38:11+08:00">2021-04-09</time>
+                <time title="修改时间：2021-04-13 13:07:35" itemprop="dateModified" datetime="2021-04-13T13:07:35+08:00">2021-04-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -737,7 +856,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>956</span>
+              <span>960</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1069,7 +1188,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1382,12 +1501,12 @@ if(canvas.getContext){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">63k</span>
+    <span title="站点总字数">66k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">57 分钟</span>
+    <span title="站点阅读时长">1:01</span>
 </div><script color="0,0,255" opacity="0.2" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
         
